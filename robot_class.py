@@ -93,7 +93,7 @@ class robot:
             landmark_x, landmark_y = landmark[0], landmark[1]
             dx = landmark_x - self.x + self.rand()*self.measurement_noise
             dy = landmark_y - self.y + self.rand()*self.measurement_noise
-            if -dx > self.measurement_range or dx > self.measurement_range or -dy > self.measurement_range or dy > self.measurement_range:
+            if abs(dx) > self.measurement_range or abs(dy) > self.measurement_range:
                 pass
             else:
                 measurements.append([index, dx, dy])
